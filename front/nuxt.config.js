@@ -1,5 +1,5 @@
 
-export default {
+const config = {
   /*
   ** Nuxt rendering mode
   ** See https://nuxtjs.org/api/configuration-mode
@@ -45,13 +45,18 @@ export default {
   ** Nuxt.js dev-modules
   */
   buildModules: [
+    '@nuxtjs/vuetify',
   ],
+  vuetify: {
+    /* module options */
+  },
   /*
   ** Nuxt.js modules
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/proxy'
   ],
   /*
   ** Axios module configuration
@@ -69,3 +74,9 @@ export default {
     dir: '../rails_api/public'
   }
 }
+
+if (process.env.NODE_ENV === 'development') {
+  config.proxy = { '/v1': 'http://localhost:5000' }
+}
+
+export default config

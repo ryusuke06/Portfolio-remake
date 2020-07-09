@@ -35,6 +35,7 @@ const config = {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
+    "@/plugins/vuetify"
   ],
   /*
   ** Auto import components
@@ -69,9 +70,20 @@ const config = {
   */
   build: {
   },
-  // 追記
-  generate: {
-    dir: '../rails_api/public'
+  presets({
+    isServer
+  }) {
+    return [
+      [
+        // require.resolve('@nuxt/babel-preset-app'),
+        // require.resolve('@nuxt/babel-preset-app-edge'), // For nuxt-edge users
+        {
+          corejs: {
+            version: 3
+          }
+        }
+      ]
+    ]
   }
 }
 

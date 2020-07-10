@@ -35,7 +35,8 @@ const config = {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
-    "@/plugins/vuetify"
+    "@/plugins/vuetify",
+    "@/plugins/vue-draggable"
   ],
   /*
   ** Auto import components

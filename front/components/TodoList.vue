@@ -6,6 +6,8 @@
       <v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details></v-text-field>
     </v-card-title>
     <v-data-table :headers="headers" :items="todos" :search="search"></v-data-table>
+
+<!-- draggableテスト -->
     <ul>
       <draggable v-model="todos" :options="{ animation: 200, delay: 50 }" >
         <li v-for="(todo, index) in todos" :key="index">

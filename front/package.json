@@ -15,7 +15,8 @@
     "loaders.css": "^0.1.2",
     "nuxt": "^2.13.0",
     "vue-draggable": "^2.0.6",
-    "vuedraggable": "^2.24.0"
+    "vuedraggable": "^2.24.0",
+    "vuex-persistedstate": "^3.0.1"
   },
   "devDependencies": {
     "@nuxtjs/vuetify": "^1.11.2",

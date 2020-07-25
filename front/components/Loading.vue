@@ -1,5 +1,5 @@
 <template>
-  <div class="loader-container">
+  <div class="loader-container" v-if="isProcessing">
     <div class="loaders">
       <div class="ball-clip-rotate">
         <div class="ball"></div>
@@ -9,11 +9,16 @@
 </template>
 
 <script>
-import "loaders.css";
+import 'loaders.css';
 export default {
   data() {
     return {};
   },
+  computed: {
+    isProcessing() {
+      return this.$store.state.loding.processing;
+    }
+  }
 };
 </script>
 

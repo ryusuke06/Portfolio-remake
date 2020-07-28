@@ -35,8 +35,9 @@ const config = {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
-    "@/plugins/vuetify",
-    "@/plugins/vue-draggable"
+    '@/plugins/vuetify',
+     '@/plugins/vue-draggable',
+    { src: '~/plugins/axios.js', ssr: false }
   ],
   /*
   ** Auto import components
@@ -58,13 +59,9 @@ const config = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/proxy'
+    '@nuxtjs/proxy',
+    '@nuxtjs/auth'
   ],
-  /*
-  ** Axios module configuration
-  ** See https://axios.nuxtjs.org/options
-  */
-  axios: {},
   /*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/
@@ -85,9 +82,37 @@ const config = {
         }
       ]
     ]
-  }
+  },
+  //以下JWT認証用
+  axios: {
+    baseURL: 'http:localhost:5000'
+  },
+  auth: {
+    redirect: {
+      login: '/login',
+      logout: '/login',
+      callback: false,
+      home: '/'
+    },
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: '/auth/sign_in', method: 'post', propertyName: false },
+          logout: false,
+          user: false
+        }
+      }
+    }
+  },
+  router: {
+    //ログインの有無でリダイレクト先を変更
+    middleware: ['auth']
+  },
+  //ローディング画面に独自コンポーネントを使うことを明示
+  loading: '~/components/loading.vue'
 }
 
+//開発モードの場合
 if (process.env.NODE_ENV === 'development') {
   config.proxy = { '/v1': 'http://localhost:5000' }
 }

@@ -1,17 +1,18 @@
 <template>
   <v-app>
     <div>
-      <Loading></Loading>
-    </div>-
+      <Loading />
+    </div>
     <nuxt />
   </v-app>
 </template>
 
 <script>
-import Loading from "@/components/Loading";　//追加
+import Loading from "@/components/loading";
+
 export default {
   components: {
-    Loading　　//追加
+    Loading,
   }
 };
 </script>

@@ -53,6 +53,8 @@ export default {
   },
   methods: {
     async loginWithAuthModule () {
+      /* login関数の this.$auth.loginWith('local', { data: this.form }); の部分でログインを実行
+       */
       await this.$auth.loginWith('local', {
         data: {
           email: this.email,

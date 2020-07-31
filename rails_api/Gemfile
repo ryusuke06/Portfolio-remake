@@ -49,3 +49,4 @@ gem 'active_model_serializers'
 
 #JWT認証
 gem 'devise_token_auth'
+gem 'omniauth'

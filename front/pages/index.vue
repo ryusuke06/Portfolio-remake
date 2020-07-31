@@ -2,11 +2,11 @@
   <div class="font">
     <p>{{ result }}Hello</p>
   	<nuxt-link to="/login">ログイン（Nuxt アプリケーション内部リンク）</nuxt-link>
-  	<nuxt-link to="/logout">ログアウト（Nuxt アプリケーション内部リンク）</nuxt-link>
   </div>
 </template>
 
 <script>
+
 export default {
   //ログインしていなくても入れるように
   auth: false,

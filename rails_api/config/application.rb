@@ -31,5 +31,11 @@ module Portfolio
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    # railsをapiモードで起動するとセッション機能が無効になるので有効にする
+    # https://note.com/mumii/n/n4d8bf6a473c6
+    config.session_store :cookie_store, key: '_session_mechaco'
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore, config.session_options
   end
 end

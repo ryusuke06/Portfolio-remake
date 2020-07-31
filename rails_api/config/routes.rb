@@ -11,6 +11,11 @@ Rails.application.routes.draw do
     #registrations: "users/registrations"
     #}
 
+    mount_devise_token_auth_for 'User', at: 'auth'
+    #, controllers: {
+    #    registrations: 'v1/auth/registrations'
+    #} 要確認https://masahiro.me/2017/01/devise-token-auth-1/
+
     root "tops#index"
     post "simple_login", to: "tops#user_simple_login"
 

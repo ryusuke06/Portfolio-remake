@@ -83,32 +83,32 @@ const config = {
       ]
     ]
   },
-  //以下JWT認証用
+  // 以下JWT認証用
   axios: {
-    baseURL: 'http:localhost:5000'
+    baseURL: 'http:localhost:5000'// proxy設定してたらいらない？
   },
   auth: {
     redirect: {
-      login: '/login',
-      logout: '/login',
-      callback: false,
-      home: '/'
+      login: '/login',   // 未ログイン時に認証ルートへアクセスした際のリダイレクトURL
+      logout: '/login',  // ログアウト時のリダイレクトURL
+      callback: false,   // Oauth認証等で必要となる コールバックルート
+      home: '/',         // ログイン後のリダイレクトURL
     },
     strategies: {
       local: {
         endpoints: {
           login: { url: '/auth/sign_in', method: 'post', propertyName: false },
           logout: false,
-          user: false
+          user: false,
         }
       }
     }
   },
   router: {
-    //ログインの有無でリダイレクト先を変更
+    // ログインの有無でリダイレクト先を変更
     middleware: ['auth']
   },
-  //ローディング画面に独自コンポーネントを使うことを明示
+  // ローディング画面に独自コンポーネントを使うことを明示
   loading: '~/components/loading.vue'
 }
 

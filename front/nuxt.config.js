@@ -37,7 +37,6 @@ const config = {
   plugins: [
     '@/plugins/vuetify',
      '@/plugins/vue-draggable',
-    { src: '~/plugins/axios.js', ssr: false }
   ],
   /*
   ** Auto import components
@@ -89,16 +88,16 @@ const config = {
   },
   auth: {
     redirect: {
-      login: '/login',   // 未ログイン時に認証ルートへアクセスした際のリダイレクトURL
-      logout: '/login',  // ログアウト時のリダイレクトURL
-      callback: false,   // Oauth認証等で必要となる コールバックルート
-      home: '/',         // ログイン後のリダイレクトURL
+      login: '/users/login',   // 未ログイン時に認証ルートへアクセスした際のリダイレクトURL
+      logout: '/',             // ログアウト時のリダイレクトURL
+      callback: false,         // Oauth認証等で必要となる コールバックルート
+      home: '/users/profile',  // ログイン後のリダイレクトURL
     },
     strategies: {
       local: {
         endpoints: {
-          login: { url: '/auth/sign_in', method: 'post', propertyName: false },
-          logout: false,
+          login: { url: '/api/v1/auth/login', method: 'post', propertyName: 'token' },
+          logout: { url: '/api/v1/auth/logout', method: 'post' },
           user: false,
         }
       }
@@ -114,7 +113,7 @@ const config = {
 
 //開発モードの場合
 if (process.env.NODE_ENV === 'development') {
-  config.proxy = { '/v1': 'http://localhost:5000' }
+  config.proxy = { '/api/v1': 'http://localhost:5000' }
 }
 
 export default config

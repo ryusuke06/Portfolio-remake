@@ -36,7 +36,7 @@ const config = {
   */
   plugins: [
     '@/plugins/vuetify',
-     '@/plugins/vue-draggable',
+    '@/plugins/vue-draggable',
   ],
   /*
   ** Auto import components
@@ -58,7 +58,7 @@ const config = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/proxy',
+    //'@nuxtjs/proxy',
     '@nuxtjs/auth'
   ],
   /*
@@ -84,7 +84,9 @@ const config = {
   },
   // 以下JWT認証用
   axios: {
-    baseURL: 'http:localhost:5000'// proxy設定してたらいらない？
+    //proxy: true
+    host: 'localhost',
+    port: 5000,
   },
   auth: {
     redirect: {
@@ -96,24 +98,20 @@ const config = {
     strategies: {
       local: {
         endpoints: {
-          login: { url: '/api/v1/auth/login', method: 'post', propertyName: 'token' },
-          logout: { url: '/api/v1/auth/logout', method: 'post' },
+          login: { url: '/api/v1/auth/sign_in', method: 'post', propertyName: 'token' },
+          logout: { url: '/api/v1/auth/sign_out', method: 'delete' },
           user: false,
         }
       }
     }
   },
-  router: {
-    // ログインの有無でリダイレクト先を変更
-    middleware: ['auth']
-  },
   // ローディング画面に独自コンポーネントを使うことを明示
   loading: '~/components/loading.vue'
 }
 
-//開発モードの場合
-if (process.env.NODE_ENV === 'development') {
+//開発モードの場合 proxyを挟めばCORS対策になる（あんまり分かってない
+/*if (process.env.NODE_ENV === 'development') {
   config.proxy = { '/api/v1': 'http://localhost:5000' }
-}
+}*/
 
 export default config

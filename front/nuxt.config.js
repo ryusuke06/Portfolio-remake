@@ -36,8 +36,8 @@ const config = {
   */
   plugins: [
     '@/plugins/vuetify',
-     '@/plugins/vue-draggable',
-    { src: '~/plugins/axios.js', ssr: false }
+    '@/plugins/vue-draggable',
+    //{ src: '~/plugins/axios.js', ssr: false },
   ],
   /*
   ** Auto import components
@@ -60,7 +60,7 @@ const config = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/proxy',
-    '@nuxtjs/auth'
+    '@nuxtjs/auth',
   ],
   /*
   ** Build configuration
@@ -85,36 +85,32 @@ const config = {
   },
   // 以下JWT認証用
   axios: {
-    baseURL: 'http:localhost:5000'// proxy設定してたらいらない？
+    proxy: true
   },
   auth: {
     redirect: {
-      login: '/login',   // 未ログイン時に認証ルートへアクセスした際のリダイレクトURL
-      logout: '/login',  // ログアウト時のリダイレクトURL
-      callback: false,   // Oauth認証等で必要となる コールバックルート
-      home: '/',         // ログイン後のリダイレクトURL
+      login: '/users/login',   // 未ログイン時に認証ルートへアクセスした際のリダイレクトURL
+      logout: '/',             // ログアウト時のリダイレクトURL
+      callback: false,         // Oauth認証等で必要となる コールバックルート
+      home: '/users/profile',  // ログイン後のリダイレクトURL
     },
     strategies: {
       local: {
         endpoints: {
-          login: { url: '/auth/sign_in', method: 'post', propertyName: false },
-          logout: false,
+          login: { url: '/api/v1/auth/sign_in', method: 'post', propertyName: 'token' },
+          logout: { url: '/api/v1/auth/sign_out', method: 'delete' },
           user: false,
         }
       }
     }
   },
-  router: {
-    // ログインの有無でリダイレクト先を変更
-    middleware: ['auth']
-  },
   // ローディング画面に独自コンポーネントを使うことを明示
   loading: '~/components/loading.vue'
 }
 
-//開発モードの場合
+//開発モードの場合 proxyを挟めばCORS対策になる（あんまり分かってない
 if (process.env.NODE_ENV === 'development') {
-  config.proxy = { '/v1': 'http://localhost:5000' }
+  config.proxy = { '/api/': {target: 'http://localhost:3000'} }
 }
 
 export default config

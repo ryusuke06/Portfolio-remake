@@ -1,3 +1,13 @@
+GIT
+  remote: https://github.com/lynndylanhurley/devise_token_auth.git
+  revision: bef1b0b7172459dff0d0a23f8d911a7b23b9a6c7
+  specs:
+    devise_token_auth (1.1.4)
+      bcrypt (~> 3.0)
+      devise (> 3.5.2, < 5)
+      rails (>= 4.2.0, < 6.1)
+      sprockets (= 3.7.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -80,11 +90,6 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    devise_token_auth (1.1.4)
-      bcrypt (~> 3.0)
-      devise (> 3.5.2, < 5)
-      rails (>= 4.2.0, < 6.1)
-      sprockets (= 3.7.2)
     erubi (1.9.0)
     execjs (2.7.0)
     ffi (1.13.1)
@@ -216,7 +221,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
-  devise_token_auth
+  devise_token_auth!
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   puma (~> 3.11)

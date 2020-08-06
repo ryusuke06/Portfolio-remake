@@ -37,6 +37,7 @@ const config = {
   plugins: [
     '@/plugins/vuetify',
     '@/plugins/vue-draggable',
+    //{ src: '~/plugins/axios.js', ssr: false },
   ],
   /*
   ** Auto import components
@@ -58,8 +59,8 @@ const config = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    //'@nuxtjs/proxy',
-    '@nuxtjs/auth'
+    '@nuxtjs/proxy',
+    '@nuxtjs/auth',
   ],
   /*
   ** Build configuration
@@ -84,9 +85,7 @@ const config = {
   },
   // 以下JWT認証用
   axios: {
-    //proxy: true
-    host: 'localhost',
-    port: 5000,
+    proxy: true
   },
   auth: {
     redirect: {
@@ -110,8 +109,8 @@ const config = {
 }
 
 //開発モードの場合 proxyを挟めばCORS対策になる（あんまり分かってない
-/*if (process.env.NODE_ENV === 'development') {
-  config.proxy = { '/api/v1': 'http://localhost:5000' }
-}*/
+if (process.env.NODE_ENV === 'development') {
+  config.proxy = { '/api/': {target: 'http://localhost:3000'} }
+}
 
 export default config

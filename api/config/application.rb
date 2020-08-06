@@ -8,6 +8,9 @@ Bundler.require(*Rails.groups)
 
 module Api
   class Application < Rails::Application
+  	config.session_store :cookie_store, key: '_session_mechaco'
+config.middleware.use ActionDispatch::Cookies
+config.middleware.use ActionDispatch::Session::CookieStore, config.session_options
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 

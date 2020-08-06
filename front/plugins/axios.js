@@ -3,6 +3,6 @@ export default function({ $axios, redirect }) {
 
 // CORSの許可
   $axios.onResponse(config => {
-    $axios.setHeader('Access-Control-Allow-Origin', 'http://localhost:5000')
+    $axios.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000')
   })
 }

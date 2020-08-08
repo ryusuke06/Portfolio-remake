@@ -9,6 +9,7 @@
 
 <script>
 import Loading from "@/components/loading";
+const axios = require('axios');
 
 export default {
   components: {

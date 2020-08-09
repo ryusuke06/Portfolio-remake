@@ -98,11 +98,15 @@ const config = {
       local: {
         endpoints: {
           login: { url: '/api/v1/auth/sign_in', method: 'post', propertyName: 'token' },
-          logout: { url: '/api/v1/auth/sign_out', method: 'delete' },
+          logout: { url: '/api/v1/auth/sign_out', method: 'delete' },//書いたはいいけとトークン 消すだけでいいから多分いらない
           user: false,
         }
       }
     }
+  },
+  router: {
+    //ログアウト状態でログイン画面に強制遷移させる。不必要な場合はauth:false
+    middleware: ['auth']
   },
   // ローディング画面に独自コンポーネントを使うことを明示
   loading: '~/components/loading.vue'

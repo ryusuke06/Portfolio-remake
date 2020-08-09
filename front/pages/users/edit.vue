@@ -53,8 +53,8 @@ export default {
         .put('api/v1/auth', this.user, {
           headers: {
             'access-token': localStorage.getItem('access-token'),
-            uid: localStorage.getItem('uid'),
-            client: localStorage.getItem('client'),
+            'uid': localStorage.getItem('uid'),
+            'client': localStorage.getItem('client'),
           },
         })
         .then((response) => {

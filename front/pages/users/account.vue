@@ -60,12 +60,14 @@ export default {
       this.$axios
         .delete('api/v1/auth', {
           headers: {
+            // ローカルストレージのtokenから必要な情報をdeleteリクエストで送信
             'access-token': localStorage.getItem('access-token'),
-            uid: localStorage.getItem('uid'),
-            client: localStorage.getItem('client'),
+            'uid': localStorage.getItem('uid'),
+            'client': localStorage.getItem('client'),
           },
         })
         .then((response) => {
+          // APIからログアウト後AuthModuleでもログアウト関数を実行
           this.$auth.logout()
           window.location.href = '/'
         })

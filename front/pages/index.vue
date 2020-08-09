@@ -1,7 +1,7 @@
 <template>
   <div class="font">
     <p>{{ result }}Hello</p>
-  	<nuxt-link to="/login">ログイン（Nuxt アプリケーション内部リンク）</nuxt-link>
+  	<nuxt-link to="/users/login">ログイン</nuxt-link>
   </div>
 </template>
 

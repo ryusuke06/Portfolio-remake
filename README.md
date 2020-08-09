@@ -24,7 +24,7 @@
 - Ruby on Rails @ v5.2.4.3(APIモード)
 
 ### 仮想環境
-- vagtant
+- vagrant
 - VirtualBox6.0 @ v6.0.14 r133895 (Qt5.6.3)
 
 ## サイト概要

@@ -28,8 +28,8 @@
           </v-dialog>
         </v-list-item>
       </v-list>
-
     </v-navigation-drawer>
+
     <v-app-bar class="tool-bar" :clipped-left="clipped" fixed app>
       <v-app-bar-nav-icon id="v-step-3" @click.stop="drawer = !drawer" />
 
@@ -56,13 +56,14 @@
           <v-icon>mdi-key</v-icon>
         </v-btn>
       </v-toolbar-items>
+
       <v-spacer />
     </v-app-bar>
-    <v-content>
+    <v-main>
       <v-container>
         <nuxt />
       </v-container>
-    </v-content>
+    </v-main>
 
     <v-footer :fixed="fixed" app>
       <span>トップページ素材提供「RPGドット」様｜ご意見、ご要望は<a href="mailto:dtodo.contact@gmail.com">こちら</a>まで</span>
@@ -176,12 +177,14 @@
       }
     }
     .tool-bar {
+      background-color: rgb(45, 47, 48) !important;
       .page-link {
         .page-link-title {
           padding-top: 15px;
         }
         .header-btn {
           background-color: rgb(45, 47, 48) !important;
+          color: white;
           @include tab {
             display: none;
           }
@@ -191,7 +194,7 @@
         }
       }
     }
-    .v-content__wrap {
+    .v-main__wrap {
       background-color: black !important;
     }
   }

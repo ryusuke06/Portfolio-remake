@@ -27,7 +27,6 @@
 </template>
 
 <script>
-import BlackFrame from '@/assets/css/black_frame.css'
 
 export default {
   //ログインしていなくても入れるように

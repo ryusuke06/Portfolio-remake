@@ -109,7 +109,11 @@ const config = {
     middleware: ['auth']
   },
   // ローディング画面に独自コンポーネントを使うことを明示
-  loading: '~/components/loading.vue'
+  loading: '~/components/loading.vue',
+  //グローバルcss
+  css: [
+    '@/assets/css/black_board.css',
+  ],
 }
 
 //開発モードの場合 proxyを挟めばCORS対策になる（あんまり分かってない

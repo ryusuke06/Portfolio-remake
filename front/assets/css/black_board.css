@@ -20,11 +20,16 @@
  text-decoration: none;
  color: #fff;
 }
-.blackboard .blink-before::before {
- content: '▶';
- position: absolute;
- left: 1rem;
- animation: blink 1.4s infinite;
+.blackboard span:hover .blink-before::before {
+ visibility: visible; //hiddenの要素に:hoverか使えないので親要素につける
+}
+.blackboard span .blink-before::before {
+  visibility: hidden;
+  position: absolute;
+  left: 1rem;
+  animation: blink 1.4s infinite;
+  content: '▶';
+  cursor:  pointer;
 }
 .blackboard p:last-of-type {
  margin-bottom: 0;

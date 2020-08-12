@@ -51,6 +51,7 @@
 ### 実装機能(実装済)
 
 - Vuetify
+- レスポンシブ対応
 - JWT認証(AuthModule, devise_token_auth)
 
 ## 設計書

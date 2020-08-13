@@ -98,7 +98,7 @@ const config = {
       local: {
         endpoints: {
           login: { url: '/api/v1/auth/sign_in', method: 'post', propertyName: 'token' },
-          logout: { url: '/api/v1/auth/sign_out', method: 'delete' },//書いたはいいけとトークン 消すだけでいいから多分いらない
+          logout: { url: '/api/v1/auth/sign_out', method: 'delete' },//書いたはいいけどトークンを消すだけでいいからいらないかも
           user: false,
         }
       }

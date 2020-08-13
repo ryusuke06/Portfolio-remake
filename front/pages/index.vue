@@ -6,22 +6,27 @@
     <v-img
     :src="(require('../assets/imgs/castle.jpg'))"
     height="450">
-      <v-row
-        :align="center"
-        :justify="center"
-      >
+      <v-row>
         <v-img
         :src="(require('../assets/imgs/last.gif'))"
-        height="350"
+        height="325"
         contain
         ></v-img>
       </v-row>
-      <div class="clearfix">
-        <div class="blackboard answer float-r">
-          <span><p class="blink-before">はい</p></span>
-          <span><p class="blink-before">いいえ</p></span>
-        </div>
-      </div>
+      <v-row
+      :align="alignment"
+      :justify="justify"
+      height="125"
+      >
+          <div class="blackboard answer">
+            <p>ジョブ：けんじゃ</p>
+            <span>レベル：９９</span>
+          </div>
+          <div class="blackboard answer">
+            <span><p class="blink-before">たたかう</p></span>
+            <span><p class="blink-before">はなす</p></span>
+          </div>
+      </v-row>
     </v-img><!-- height固定、containなし（画像全体を含めないこと）v-imgでの画像の参照は上記のようにする -->
   </div>
 </template>
@@ -34,6 +39,8 @@ export default {
   data: function(){
     return {
       result: 'no event.',
+      alignment: 'start',
+      justify: 'end'
     };
   },
 }
@@ -46,6 +53,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 3vw;
+  font-size: 1vw;
 }
 </style>

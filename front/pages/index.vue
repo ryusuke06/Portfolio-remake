@@ -4,28 +4,29 @@
       <p>＊「このおいぼれに何のようじゃ？」</p>
     </div>
     <v-img
-    :src="(require('../assets/imgs/castle.jpg'))"
-    height="450">
+      :src="(require('../assets/imgs/backgrounds/castle.jpg'))"
+      height="450"
+    >
       <v-row>
         <v-img
-        :src="(require('../assets/imgs/last.gif'))"
-        height="325"
-        contain
+          :src="(require('../assets/imgs/monsters/last.gif'))"
+          height="325"
+          contain
         ></v-img>
       </v-row>
       <v-row
-      :align="alignment"
-      :justify="justify"
-      height="125"
+        :align="alignment"
+        :justify="justify"
+        height="125"
       >
-          <div class="blackboard answer">
-            <p>ジョブ：けんじゃ</p>
-            <span>レベル：９９</span>
-          </div>
-          <div class="blackboard answer">
-            <span><p class="blink-before">たたかう</p></span>
-            <span><p class="blink-before">はなす</p></span>
-          </div>
+        <div class="blackboard answer">
+          <p>ジョブ：けんじゃ</p>
+          <span>レベル：９９</span>
+        </div>
+        <div class="blackboard answer">
+          <span><p class="blink-before">たたかう</p></span>
+          <span><p class="blink-before">はなす</p></span>
+        </div>
       </v-row>
     </v-img><!-- height固定、containなし（画像全体を含めないこと）v-imgでの画像の参照は上記のようにする -->
   </div>
@@ -47,6 +48,7 @@ export default {
 </script>
 
 <style>
+/* 今後ドットフォントと切り替えできるように */
 .font {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

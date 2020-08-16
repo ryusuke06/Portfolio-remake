@@ -1,60 +1,86 @@
 <template>
-  <v-app>
-    <v-container>
-      <v-row>
-        <v-spacer></v-spacer>
-        <v-col cols="12" lg="4">
+  <div>
+    <v-img
+      :src="(require('../../assets/imgs/backgrounds/castle.jpg'))"
+      height="480"
+    >
+
+      <v-row
+        :align="alignment"
+        :justify="justify"
+      >
+        <v-col
+          cols="7"
+          height="480"
+        >
+          <v-img
+            :src="(require('../../assets/imgs/jobs/mahou.gif'))"
+            height="325"
+            contain
+          ></v-img>
+        </v-col>
+
+        <v-col
+          cols="5"
+          height="480"
+        >
           <v-row>
-            <v-col
-              cols="12"
-              lg="7"
-              class="grey--text text--darken-3 font-weight-bold pa-2 text-h6"
-            >
-              <p>
-                アカウント設定
-              </p>
+            <v-col cols="12">
+              <v-row cols="auto">
+                <div class="blackboard answer">
+                  <span @click="overlay = !overlay">
+                    <p class="blink-before">つよさ</p>
+                  </span>
+                  <span><p class="blink-before">そうび</p></span>
+                  <span><p class="blink-before">じゅもん</p></span>
+                  <span @click="deleteUser"><p class="blink-before">記録を消す</p></span>
+                </div>
+              </v-row>
             </v-col>
           </v-row>
-          <v-row class="my-5">
-            <v-col cols="12" lg="7" class="pa-2">
-              <a
-                href="/"
-                class="grey--text text--darken-3 mb-1"
-                @click="$auth.logout()"
+
+          <v-row
+            :align="alignment"
+            :justify="justify"
+          >
+            <v-col cols="12">
+              <v-img
+                :src="(require('../../assets/imgs/transparent.png'))"
+                height="250"
               >
-                ログアウト
-              </a>
-            </v-col>
-            <v-col cols="12" lg="5" class="pa-2 text-right">
-              <font-awesome-icon icon="angle-right" />
-            </v-col>
-          </v-row>
-          <v-divider></v-divider>
-          <v-row class="my-5">
-            <v-col cols="12" lg="7" class="pa-2">
-              <a
-                href="#"
-                class="red--text text--darken-3 mb-1"
-                @click="deleteUser"
-              >
-                退会
-              </a>
-            </v-col>
-            <v-col cols="12" lg="5" class="pa-2 text-right">
-              <font-awesome-icon icon="angle-right" />
+                <v-overlay
+                  :absolute="absolute"
+                  :value="overlay"
+                  :opacity=0
+                >
+                <v-row cols="auto">
+                  <div class="blackboard answer">
+                    <p>Lv:99</p>
+                    <p>Exp:9999</p>
+                    <p>job:</p>
+                    <p>けんじゃ</p>
+                  </div>
+                </v-row>
+                </v-overlay>
+              </v-img>
             </v-col>
           </v-row>
         </v-col>
-        <v-spacer></v-spacer>
+
       </v-row>
-    </v-container>
-  </v-app>
+    </v-img>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'App',
-  data: () => ({}),
+  data: () => ({
+    alignment: 'center',
+    justify: 'center',
+    absolute: true,
+    overlay: false,
+  }),
   methods: {
     deleteUser() {
       this.$axios

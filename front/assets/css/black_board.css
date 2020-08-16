@@ -29,7 +29,7 @@
   left: 1rem;
   animation: blink 1.4s infinite;
   content: '▶';
-  cursor:  pointer;
+  cursor: pointer !important;
 }
 .blackboard p:last-of-type {
  margin-bottom: 0;

@@ -16,7 +16,8 @@
 - あと僕が好き
 
 
-![画像は開発中のものです](https://user-images.githubusercontent.com/62837064/89970200-3c686800-dc93-11ea-8288-a8ff00bc3318.png)
+![FireShot Capture 016 - front - localhost](https://user-images.githubusercontent.com/62837064/90510374-d51c4d80-e195-11ea-99f6-727e13f65240.png)
+※開発中の画面です。また画像はスマホサイズ版の表示です。
 
 # ITQuest
 

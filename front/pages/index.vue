@@ -1,7 +1,7 @@
 <template>
   <div class="font">
     <div class="blackboard question">
-      <p>＊「このおいぼれに何のようじゃ？」</p>
+      <p>{{ talk }}</p>
     </div>
     <v-img
       :src="(require('../assets/imgs/backgrounds/castle.jpg'))"
@@ -39,6 +39,7 @@ export default {
   auth: false,
   data: function(){
     return {
+      talk: '＊「このおいぼれに何のようじゃ？」',
       result: 'no event.',
       alignment: 'start',
       justify: 'end'

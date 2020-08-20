@@ -40,7 +40,7 @@
       </v-toolbar-title>
 
       <v-toolbar-items class="page-link" v-if="user">
-        <v-btn to="/test" nuxt class="header-btn ml-2">
+        <v-btn to="/shop" nuxt class="header-btn ml-2">
           <v-icon>mdi-feather</v-icon>
         </v-btn>
       </v-toolbar-items>
@@ -104,7 +104,7 @@
             {
               icon: "mdi-feather",
               title: "診断",
-              to: "/test"
+              to: "/shop"
             },
             {
               icon: "mdi-lock",

@@ -21,8 +21,11 @@
         </v-col>
         <v-col>
           <div class="blackboard answer">
-            <span><p class="blink-before">しんだん</p></span>
-            <span><p class="blink-before">かいもの</p></span>
+            <span><p class="blink-before" @click="shop">しんだん</p></span>
+            <span><p class="blink-before" @click="shop">かいもの</p></span>
+            <v-dialog v-model="disclose">
+              <v-card></v-card>
+            </v-dialog>
           </div>
         </v-col>
       </v-row>
@@ -45,8 +48,14 @@ export default{
       ambiance: '閑散としている、、、',
       alignment: 'end',
       justify: 'space-around',
+      disclose: false,
     };
   },
+  methods: {
+    shop: function(){
+      this.disclose = !this.disclose
+    },
+  }
 }
 
 </script>

@@ -30,7 +30,7 @@
                 <div class="blackboard answer">
                   <ul>
                     <li v-for="item in items">
-                      <span><p class="blink-before">{{ item.name }}</p></span>
+                      <span><p class="blink-before">{{ item.name }}  {{ item.gold }}G</p></span>
                     </li>
                   </ul>
                 </div>
@@ -59,8 +59,8 @@ export default{
       justify: 'space-around',
       disclose: false,
       items: [
-        {name:'どうのつるぎ'},
-        {name:'はがねのつるぎ'},
+        {name:'どうのつるぎ', gold:'100'},
+        {name:'はがねのつるぎ', gold:'800'},
       ],
     };
   },

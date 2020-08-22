@@ -24,7 +24,16 @@
             <span><p class="blink-before" @click="shop">しんだん</p></span>
             <span><p class="blink-before" @click="shop">かいもの</p></span>
             <v-dialog v-model="disclose">
-              <v-card></v-card>
+                <div class="blackboard question">
+                  <p>＊「何を買うんだい？」</p>
+                </div>
+                <div class="blackboard answer">
+                  <ul>
+                    <li v-for="item in items">
+                      <span><p class="blink-before">{{ item.name }}</p></span>
+                    </li>
+                  </ul>
+                </div>
             </v-dialog>
           </div>
         </v-col>
@@ -49,6 +58,10 @@ export default{
       alignment: 'end',
       justify: 'space-around',
       disclose: false,
+      items: [
+        {name:'どうのつるぎ'},
+        {name:'はがねのつるぎ'},
+      ],
     };
   },
   methods: {

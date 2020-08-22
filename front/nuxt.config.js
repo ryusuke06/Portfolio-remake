@@ -108,6 +108,7 @@ const config = {
   //グローバルcss
   css: [
     '@/assets/css/black_board.css',
+    '@/assets/css/list.css',
   ],
 }
 

@@ -40,7 +40,6 @@ export default {
   data: function(){
     return {
       talk: '＊「このおいぼれに何のようじゃ？」',
-      result: 'no event.',
       alignment: 'start',
       justify: 'end'
     };

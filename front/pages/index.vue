@@ -37,7 +37,7 @@
 export default {
   //ログインしていなくても入れるように
   auth: false,
-  data: function(){
+  data(){
     return {
       talk: '＊「このおいぼれに何のようじゃ？」',
       alignment: 'start',

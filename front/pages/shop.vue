@@ -25,12 +25,12 @@
             <span><p class="blink-before" @click="shop">かいもの</p></span>
             <v-dialog v-model="disclose">
                 <div class="blackboard question">
-                  <p>＊「何を買うんだい？」</p>
+                  <p>{{ salesTalk }}</p>
                 </div>
                 <div class="blackboard answer">
                   <ul>
                     <li v-for="item in items">
-                      <span><p class="blink-before">{{ item.name }}  {{ item.gold }}G</p></span>
+                      <span @click="pay(item.gold)"><p class="blink-before">{{ item.name }}  {{ item.gold }}G</p></span>
                     </li>
                   </ul>
                 </div>
@@ -51,23 +51,31 @@
 
 <script>
 export default{
-  data: function(){
+  data(){
     return {
       talk: '＊「何か用かな？」',
+      salesTalk: '＊「何を買うんだい？」',
       ambiance: '閑散としている、、、',
       alignment: 'end',
       justify: 'space-around',
       disclose: false,
       items: [
-        {name:'どうのつるぎ', gold:'100'},
-        {name:'はがねのつるぎ', gold:'800'},
+        {name:'どうのつるぎ', gold:100},
+        {name:'はがねのつるぎ', gold:800},
       ],
     };
   },
   methods: {
-    shop: function(){
-      this.disclose = !this.disclose
+    shop(){
+      this.disclose = !this.disclose;
     },
+    experience(){
+      this.$store.commit('experience');
+    },
+    pay(gold){
+      this.$store.commit('pay', gold);
+      this.salesTalk = this.$store.state.shop.salesTalk;
+    }
   }
 }
 

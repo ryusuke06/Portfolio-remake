@@ -11,7 +11,7 @@ const createStore = ()=>{
     	    		equipment: {wepon: '', armor: '', accessories: ''}
     			},
     			shop: {
-    				salesTalk: '',
+    				salesTalk: '＊「いいもの揃えてるぜ」',
     				wepons: [
     					{name:'ひのきのぼう', gold:'100', atk:5},
         				{name:'どうのつるぎ', gold:'500', atk:15},
@@ -29,21 +29,21 @@ const createStore = ()=>{
 		mutations: {
 	    	levelUp: (state)=>{
 				if (state.experiencePoint % 5 === 0){
-					state.level++;
+					state.level++
 	    		}else{
 	    		};
 			},
 			experience: (state)=>{
 				state.experiencePoint++;
 			},
-			pay: (state, gold)=>{
-				if(state.user.gold >= gold){
-					state.user.gold -= gold;
+			pay: (state, item)=>{
+				if(state.user.gold >= item.gold){
+					state.user.gold -= item.gold;
 					state.salesTalk = '毎度あり！';
 				}else{
 					state.salesTalk = '金がないならいい診断を紹介するぜ？';//なぜか入らないので修正
 				};
-			}
+			},
 		}
 	})
 }

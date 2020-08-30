@@ -30,7 +30,7 @@
                 <div class="blackboard answer">
                   <ul>
                     <li v-for="item in items">
-                      <span @click="pay(item.gold)"><p class="blink-before">{{ item.name }}  {{ item.gold }}G</p></span>
+                      <span @click="pay(item)"><p class="blink-before">{{ item.name }}  {{ item.gold }}G</p></span>
                     </li>
                   </ul>
                 </div>
@@ -54,7 +54,6 @@ export default{
   data(){
     return {
       talk: '＊「何か用かな？」',
-      salesTalk: '＊「何を買うんだい？」',
       ambiance: '閑散としている、、、',
       alignment: 'end',
       justify: 'space-around',
@@ -65,6 +64,11 @@ export default{
       ],
     };
   },
+  computed: {
+    salesTalk(){
+      return this.$store.state.shop.salesTalk; //storeを使って文章を変える場合、算出プロパティの再評価を発生させる
+    },
+  },
   methods: {
     shop(){
       this.disclose = !this.disclose;
@@ -72,9 +76,8 @@ export default{
     experience(){
       this.$store.commit('experience');
     },
-    pay(gold){
-      this.$store.commit('pay', gold);
-      this.salesTalk = this.$store.state.shop.salesTalk;
+    pay(item){
+      this.$store.commit('pay', item);
     }
   }
 }

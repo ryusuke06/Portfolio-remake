@@ -1,14 +1,14 @@
 <template>
   <div>
-    E {{ accesories }}
+    E {{ accesory }}
   </div>
 </template>
 
 <script>
 export default{
   computed: {
-  	accesories(){
-      return this.$store.state.user.equipment.accesories
+  	accesory(){
+      return this.$store.state.user.equipment.accesory
     }
   }
 }

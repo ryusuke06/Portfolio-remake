@@ -11,12 +11,12 @@
 <script>
 import wepon from '../aroms/equipments/wepon'
 import armor from '../aroms/equipments/armor'
-import accesories from '../aroms/equipments/accesories'
+import accesory from '../aroms/equipments/accesory'
 
 export default {
   components: {
     wepon,
     armor,
-    accesories,
+    accesory,
   }
 }

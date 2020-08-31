@@ -28,10 +28,10 @@
             <v-col cols="12">
               <v-row cols="auto">
                 <div class="blackboard answer">
-                  <span @click="doStatus">
+                  <span @click="isStatus">
                     <p class="blink-before">つよさ</p>
                   </span>
-                  <span @click="doEquip">
+                  <span @click="isEquip">
                     <p class="blink-before">そうび</p>
                   </span>
                   <span><p class="blink-before">じゅもん</p></span>
@@ -106,11 +106,11 @@ export default {
           window.location.href = '/'
         })
     },
-    doStatus(){
+    isStatus(){
       this.overlay = !this.overlay;
       this.currentView = 'status';
     },
-    doEquip(){
+    isEquip(){
       this.overlay = !this.overlay;
       this.currentView = 'equipments';
     }

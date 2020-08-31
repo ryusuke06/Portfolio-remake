@@ -28,13 +28,7 @@
                 <p>{{ salesTalk }}</p>
                 <p>{{ money }} G</p> <!-- 減ったゴールドをどこかのタイミングでバックエンドにポストして状態保存!!!!!!!!!!! -->
               </div>
-              <div class="blackboard answer">
-                <ul>
-                  <li v-for="item in items">
-                    <span @click="pay(item)"><p class="blink-before">{{ item.name }}  {{ item.gold }}G</p></span>
-                  </li>
-                </ul>
-              </div>
+              <shopGoods />
             </v-dialog>
           </div>
         </v-col>
@@ -51,7 +45,12 @@
 </template>
 
 <script>
+import shopGoods from '@/components/molecules/shop_goods'
+
 export default{
+  components: {
+    shop_goods,
+  },
   data(){
     return {
       talk: '＊「何か用かな？」',
@@ -59,10 +58,7 @@ export default{
       alignment: 'end',
       justify: 'space-around',
       disclose: false,
-      items: [
-        {name:'どうのつるぎ', gold:100},
-        {name:'はがねのつるぎ', gold:800},
-      ],
+      dark: true,
     };
   },
   computed: {

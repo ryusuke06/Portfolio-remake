@@ -8,20 +8,35 @@ const createStore = ()=>{
        			experiencePoint: 0,
        			job: 'みならい',
    	    		gold: 9000,
-        		equipment: {wepon: 'どうのつるぎ', armor: 'たびびとのふく', accesories: 'ぎんのロザリオ'},
+        		equipment: {wepon: 'どうのつるぎ', armor: 'たびびとのふく', accesory: 'ぎんのロザリオ'},
+        		haveItems: {wepons: [], armors: [], accesories: []},
     		},
     		shop: {
     			salesTalk: '＊「いいもの揃えてるぜ」',
    				wepons: [
-    				{name:'ひのきのぼう', gold:100, atk:5},
-        			{name:'どうのつるぎ', gold:500, atk:15},
+    				{id:1, name:'ひのきのぼう', gold:100, atk:5},
+        			{id:2, name:'どうのつるぎ', gold:500, atk:15},
+    				{id:3, name:'ひのきのぼう1', gold:100, atk:5},
+        			{id:4, name:'どうのつるぎ1', gold:500, atk:15},
+    				{id:5, name:'ひのきのぼう2', gold:100, atk:5},
+        			{id:6, name:'どうのつるぎ2', gold:500, atk:15},
+    				{id:7, name:'ひのきのぼう3', gold:100, atk:5},
+        			{id:8, name:'どうのつるぎ3', gold:500, atk:15},
+    				{id:9, name:'ひのきのぼう4', gold:100, atk:5},
+        			{id:10, name:'どうのつるぎ4', gold:500, atk:15},
+    				{id:11, name:'ひのきのぼう5', gold:100, atk:5},
+        			{id:12, name:'どうのつるぎ5', gold:500, atk:15},
+    				{id:13, name:'ひのきのぼう6', gold:100, atk:5},
+        			{id:14, name:'どうのつるぎ6', gold:500, atk:15},
+    				{id:15, name:'ひのきのぼう7', gold:100, atk:5},
+        			{id:16, name:'どうのつるぎ7', gold:500, atk:15},
     			],
    				armors: [
-    				{name:'かわのたて', gold:150, def:3},
-    				{name:'ぬののふく', gold:50, def:5},
+    				{id:1, name:'ぬののふく', gold:50, def:5},
+    				{id:2, name:'かわのたて', gold:150, def:3},
     			],
-    			accessories: [
-    			    {name:'ほしふるうでわ', gold:5000000, spd:255}
+    			accesories: [
+    			    {id:1, name:'ほしふるうでわ', gold:5000000, spd:255}
    				],
     		},
 		},

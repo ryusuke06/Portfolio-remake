@@ -1,14 +1,14 @@
 <template>
   <div>
-    Lv：{{ lv }}
+    E {{ armor }}
   </div>
 </template>
 
 <script>
 export default{
   computed: {
-  	lv(){
-  	  return this.$store.state.user.level
+  	armor(){
+      return this.$store.state.user.equipment.armor
     }
   }
 }

@@ -28,10 +28,12 @@
             <v-col cols="12">
               <v-row cols="auto">
                 <div class="blackboard answer">
-                  <span @click="overlay = !overlay">
+                  <span @click="doStatus">
                     <p class="blink-before">つよさ</p>
                   </span>
-                  <span><p class="blink-before">そうび</p></span>
+                  <span @click="doEquip">
+                    <p class="blink-before">そうび</p>
+                  </span>
                   <span><p class="blink-before">じゅもん</p></span>
                   <span @click="deleteUser"><p class="blink-before">記録を消す</p></span>
                 </div>
@@ -55,10 +57,7 @@
                 >
                 <v-row cols="auto">
                   <div class="blackboard answer">
-                    <p>Lv:99</p>
-                    <p>Exp:9999</p>
-                    <p>job:</p>
-                    <p>けんじゃ</p>
+                    <component :is="currentView"></component>
                   </div>
                 </v-row>
                 </v-overlay>
@@ -73,14 +72,23 @@
 </template>
 
 <script>
+import status from '@/components/molecules/status'
+import equipments from '@/components/molecules/equipments'
+
 export default {
-  name: 'App',
-  data: () => ({
-    alignment: 'center',
-    justify: 'center',
-    absolute: true,
-    overlay: false,
-  }),
+  components: {
+    status,
+    equipments,
+  },
+  data(){
+    return{
+      alignment: 'center',
+      justify: 'center',
+      absolute: true,
+      overlay: false,
+      currentView: '',
+    }
+  },
   methods: {
     deleteUser() {
       this.$axios
@@ -98,6 +106,14 @@ export default {
           window.location.href = '/'
         })
     },
+    doStatus(){
+      this.overlay = !this.overlay;
+      this.currentView = 'status';
+    },
+    doEquip(){
+      this.overlay = !this.overlay;
+      this.currentView = 'equipments';
+    }
   },
 }
 </script>

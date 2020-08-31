@@ -1,11 +1,15 @@
-<div class="blackboard question">
-  <p>{{ talk }}</p>
-</div>
+<template>
+  <div class="blackboard question">
+    <p>{{ talk }}</p>
+  </div>
+</template>
 
 <script>
 export default {
-    data: ()=>({
-    	talk:'',
-    })
+  data() {
+  	return{
+      talk:'',
+    }
+  }
 }
 </script>

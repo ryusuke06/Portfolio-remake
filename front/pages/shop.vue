@@ -24,16 +24,17 @@
             <span><p class="blink-before" @click="shop">しんだん</p></span>
             <span><p class="blink-before" @click="shop">かいもの</p></span>
             <v-dialog v-model="disclose">
-                <div class="blackboard question">
-                  <p>{{ salesTalk }}</p>
-                </div>
-                <div class="blackboard answer">
-                  <ul>
-                    <li v-for="item in items">
-                      <span @click="pay(item)"><p class="blink-before">{{ item.name }}  {{ item.gold }}G</p></span>
-                    </li>
-                  </ul>
-                </div>
+              <div class="blackboard question">
+                <p>{{ salesTalk }}</p>
+                <p>{{ money }} G</p> <!-- 減ったゴールドをどこかのタイミングでバックエンドにポストして状態保存!!!!!!!!!!! -->
+              </div>
+              <div class="blackboard answer">
+                <ul>
+                  <li v-for="item in items">
+                    <span @click="pay(item)"><p class="blink-before">{{ item.name }}  {{ item.gold }}G</p></span>
+                  </li>
+                </ul>
+              </div>
             </v-dialog>
           </div>
         </v-col>
@@ -67,6 +68,9 @@ export default{
   computed: {
     salesTalk(){
       return this.$store.state.shop.salesTalk; //storeを使って文章を変える場合、算出プロパティの再評価を発生させる
+    },
+    money(){
+      return this.$store.state.user.gold;
     },
   },
   methods: {

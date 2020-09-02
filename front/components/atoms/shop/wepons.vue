@@ -30,8 +30,13 @@ export default{
   },
   computed: {
     wepons() {
-      return this.$store.state.shop.wepons
+      return this.$store.state.shop.wepons;
     },
-  }
+  },
+  methods: {
+    pay(item){
+      this.$emit('pay', item);
+    },
+  },
 }
 </script>

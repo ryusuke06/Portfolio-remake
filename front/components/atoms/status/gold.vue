@@ -8,7 +8,7 @@
 export default{
   computed: {
     gold(){
-  	  return this.$store.state.user.gold
+  	  return this.$store.state.user.status.gold;
     }
   }
 }

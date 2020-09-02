@@ -8,7 +8,7 @@
 export default{
   computed: {
   	job(){
-  	  return this.$store.state.user.job
+  	  return this.$store.state.user.status.job;
     }
   }
 }

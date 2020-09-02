@@ -7,8 +7,8 @@
           :item-height="30"
           height="300"
         >
-        <template v-slot="{ item }" dark="dark">
-          <v-list-item :key="item.id">
+        <template v-slot="{ item }">
+          <v-list-item :key="item.id" dark="dark">
             <v-list-item-content>
               <v-list-item-title>
                 <span @click="pay(item)"><p class="blink-before">{{ item.name }}  {{ item.gold }}G</p></span>
@@ -30,8 +30,13 @@ export default{
   },
   computed: {
     accesories() {
-      return this.$store.state.shop.accesories
+      return this.$store.state.shop.accesories;
     },
-  }
+  },
+  methods: {
+    pay(item){
+      this.$emit('pay', item);
+    },
+  },
 }
 </script>

@@ -24,10 +24,6 @@
             <span><p class="blink-before" @click="shop">しんだん</p></span>
             <span><p class="blink-before" @click="shop">かいもの</p></span>
             <v-dialog v-model="disclose">
-              <div class="blackboard question">
-                <p>{{ salesTalk }}</p>
-                <p>{{ money }} G</p> <!-- 減ったゴールドをどこかのタイミングでバックエンドにポストして状態保存!!!!!!!!!!! -->
-              </div>
               <shopGoods />
             </v-dialog>
           </div>
@@ -49,7 +45,7 @@ import shopGoods from '@/components/molecules/shop_goods'
 
 export default{
   components: {
-    shop_goods,
+    shopGoods,
   },
   data(){
     return {
@@ -61,23 +57,12 @@ export default{
       dark: true,
     };
   },
-  computed: {
-    salesTalk(){
-      return this.$store.state.shop.salesTalk; //storeを使って文章を変える場合、算出プロパティの再評価を発生させる
-    },
-    money(){
-      return this.$store.state.user.gold;
-    },
-  },
   methods: {
     shop(){
       this.disclose = !this.disclose;
     },
     experience(){
       this.$store.commit('experience');
-    },
-    pay(item){
-      this.$store.commit('pay', item);
     }
   }
 }

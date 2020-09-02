@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <section>
   	<ul>
       <p><lv /></p>
       <p><exp /></p>
       <p><gold /></p>
       <p><job /></p>
     </ul>
-  </div>
+  </section>
 </template>
 
 <script>

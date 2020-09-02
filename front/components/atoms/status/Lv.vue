@@ -8,7 +8,7 @@
 export default{
   computed: {
   	lv(){
-  	  return this.$store.state.user.level
+  	  return this.$store.state.user.status.level;
     }
   }
 }

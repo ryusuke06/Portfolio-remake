@@ -4,10 +4,7 @@ const createStore = ()=>{
 	return new Vuex.Store({
 		state: {
    			user: {
-     			level: 1,
-       			experiencePoint: 0,
-       			job: 'みならい',
-   	    		gold: 9000,
+     			status: {level: 1, experiencePoint: 0, job: 'みならい', gold: 9000, atk: 5, def: 3},
         		equipment: {wepon: 'どうのつるぎ', armor: 'たびびとのふく', accesory: 'ぎんのロザリオ'},
         		haveItems: {wepons: [], armors: [], accesories: []},
     		},
@@ -39,24 +36,53 @@ const createStore = ()=>{
     			    {id:1, name:'ほしふるうでわ', gold:5000000, spd:255}
    				],
     		},
+    		test: {
+    			question: '＊「じゃあ聞くぜ」',
+    			options: [
+    				{id: 1, option: 'test1'},
+    				{id: 2, option: 'test2'},
+    			],
+    			optionPattern: '',
+    			results: [
+    				{id: 1, patterns: ['11','12'], result: '成功？'},
+    				{id: 2, patterns: ['2'], result: '成功！'},
+    				/*選択肢の順番とパターンの照合、
+    				対象の診断のデータからoptionのデータをミューテーションで更新＋選択したIDを文字列にして保存
+    				条件分岐文でoptionがこれ以上ないことが確認されたら
+    				アクションで保存している文字列IDとpatternsを照合、結果表示＋axiosで選択結果や経験値などを送信
+    				ついでに例外処理でエラーレスポンスも受け取れるように
+    				最後にstateのリセット
+    				*/
+    			],
+    		},
 		},
 		mutations: {
 	    	levelUp: (state)=>{
-				if (state.experiencePoint % 5 === 0){
-					state.level++;
+				if (state.status.experiencePoint % 5 === 0){
+					state.status.level++;
 	    		}else{
 	    		};
 			},
 			experience: (state)=>{
-				state.experiencePoint++;
+				state.status.experiencePoint++;
 			},
-			pay: (state, item)=>{
-				if(state.user.gold >= item.gold){
-					state.user.gold -= item.gold;
-					state.salesTalk = '毎度あり！';
+			pay: (state, buyItem)=>{
+				if(state.user.status.gold >= buyItem.gold){
+					state.user.status.gold -= buyItem.gold;
+					state.shop.salesTalk = '毎度あり！';
 				}else{
-					state.salesTalk = '金がないならいい診断を紹介するぜ？';//なぜか入らないので修正!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+					state.shop.salesTalk = '金がないならいい診断を紹介するぜ？';
 				};
+			},
+			nextOptions: (state)=>{
+				state.test.options = [{id: 1, option: 'test3'}, {id: 2, option: 'test4'}];
+			},//patternsの配列の中から一致するものを探すメソッド作る
+		},
+		actions: {
+			doResult: (optionId)=>{
+				if (state.optionPattern !== optionId){//もしも次の選択肢があるなら
+					optionPatterns += String(optionId) //idをパターンとして保存
+				}
 			},
 		},
 		strict: process.env.NODE_ENV !== 'production' //外部でミューテーションハイドラが変更されたらエラーを投げる（厳格モード）

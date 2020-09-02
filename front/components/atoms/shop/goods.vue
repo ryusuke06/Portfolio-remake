@@ -7,3 +7,18 @@
     </ul>
   </div>
 </template>
+<script>
+export default{
+  methods: {
+    isWepons(){
+      this.$emit('wepons');
+    },
+    isArmors(){
+      this.$emit('armors');
+    },
+    isAccesories(){
+      this.$emit('accesories');
+    },
+  }
+}
+</script>

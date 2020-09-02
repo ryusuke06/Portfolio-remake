@@ -8,7 +8,7 @@
 export default{
   computed: {
   	exp(){
-      return this.$store.state.user.experiencePoint
+      return this.$store.state.user.status.experiencePoint;
     }
   }
 }

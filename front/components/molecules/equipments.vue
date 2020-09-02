@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <section>
   	<ul>
       <p><wepon /></p>
       <p><armor /></p>
-      <p><accesories /></p>
+      <p><accesory /></p>
     </ul>
-  </div>
+  </section>
 </template>
 
 <script>

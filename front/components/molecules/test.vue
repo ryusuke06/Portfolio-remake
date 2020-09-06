@@ -1,7 +1,7 @@
 <template>
   <section>
-    <component :is="currentTestTalk" />
-    <component :is="currentTestState" @selectOption="selectOption" />
+    <question />
+    <options @selectOption="selectOption" />
   </section>
 </template>
 
@@ -22,3 +22,4 @@ export default {
   	},
   },
 }
+</script>

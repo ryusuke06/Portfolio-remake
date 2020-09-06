@@ -4,7 +4,7 @@ const createStore = ()=>{
 	return new Vuex.Store({
 		state: {
    			user: {
-     			status: {level: 1, experiencePoint: 0, job: 'みならい', gold: 9000, atk: 5, def: 3},
+     			status: {level: 1, experiencePoint: 0, job: 'みならい', gold: 3000, atk: 5, def: 3},
         		equipment: {wepon: 'どうのつるぎ', armor: 'たびびとのふく', accesory: 'ぎんのロザリオ'},
         		haveItems: {wepons: [], armors: [], accesories: []},
     		},
@@ -54,6 +54,7 @@ const createStore = ()=>{
     				最後にstateのリセット
     				*/
     			],
+    			setResult: '',
     		},
 		},
 		mutations: {
@@ -76,12 +77,29 @@ const createStore = ()=>{
 			},
 			nextOptions: (state)=>{
 				state.test.options = [{id: 1, option: 'test3'}, {id: 2, option: 'test4'}];
-			},//patternsの配列の中から一致するものを探すメソッド作る
+			},
+			searchResult: (state)=>{
+				var doneTest = false;
+				for (var resultIndex in state.test.results){
+					for (var patternIndex in state.test.results[resultIndex].patterns){
+						if (optionPattern === state.test.results[resultIndex].patterns[patternIndex]){
+							doneTest = true;
+							state.test.setResult = state.test.results[resultIndex].result;
+							break;
+						}
+					}
+					if (doneTest === true){
+						break;
+					}
+				}
+			},
 		},
 		actions: {
-			doResult: (optionId)=>{
-				if (state.optionPattern !== optionId){//もしも次の選択肢があるなら
-					optionPatterns += String(optionId) //idをパターンとして保存
+			doResult: (state, optionId)=>{
+				state.test.optionPattern += optionsId;
+				$store.commit('searchResult')
+				if (doneTest === false){
+					$store.commit('nextOptions')
 				}
 			},
 		},

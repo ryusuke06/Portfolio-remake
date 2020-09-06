@@ -21,10 +21,10 @@
         </v-col>
         <v-col>
           <div class="blackboard answer">
-            <span><p class="blink-before" @click="shop">しんだん</p></span>
-            <span><p class="blink-before" @click="shop">かいもの</p></span>
+            <span><p class="blink-before" @click="test">しんだん</p></span>
+            <span><p class="blink-before" @click="goods">かいもの</p></span>
             <v-dialog v-model="disclose">
-              <shopGoods />
+              <component :is="currentShopView" />
             </v-dialog>
           </div>
         </v-col>
@@ -42,10 +42,12 @@
 
 <script>
 import shopGoods from '@/components/molecules/shop_goods'
+import test from '@/components/molecules/test'
 
 export default{
   components: {
     shopGoods,
+    test,
   },
   data(){
     return {
@@ -55,11 +57,17 @@ export default{
       justify: 'space-around',
       disclose: false,
       dark: true,
+      currentShopView: 'test',
     };
   },
   methods: {
-    shop(){
+    test(){
       this.disclose = !this.disclose;
+      this.currentShopView = 'test';
+    },
+    goods(){
+      this.disclose = !this.disclose;
+      this.currentShopView = 'shopGoods';
     },
     experience(){
       this.$store.commit('experience');

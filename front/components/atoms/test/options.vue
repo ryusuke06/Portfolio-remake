@@ -1,8 +1,9 @@
 <template>
-  <v-virtual-scroll
-    :items="armors"
-    :item-height="30"
-    height="300"
+  <div class="blackboard answer">
+    <v-virtual-scroll
+      :items="options"
+      :item-height="30"
+      height="300"
     >
       <template v-slot="{ item }">
         <v-list-item :key="item.id" dark="dark">

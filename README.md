@@ -58,6 +58,7 @@
 - Vuetify
 - レスポンシブ対応
 - JWT認証(AuthModule, devise_token_auth)
+- 買い物機能(ゴールドを消費して装備を買う)
 
 ## 設計書
 https://drive.google.com/drive/folders/1ZC3q2xDVxVeQ57WcEgNPU13ec1KlpEjx
